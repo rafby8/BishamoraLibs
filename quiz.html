@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<title> Bishamora Libs </title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interaktif</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #003366; /* Warna biru gelap */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffcc00; /* Warna kuning saat hover */
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #003366; /* Warna biru gelap */
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+
+        .quiz-question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .quiz-button {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .quiz-button:hover {
+            background-color: #00509e; /* Warna biru lebih terang saat hover */
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .recommendations {
+            margin-top: 20px;
+        }
+
+        .book {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .book img {
+            width: 100px; /* Ukuran gambar */
+            height: auto;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+
+        .opac-link {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .opac-link img {
+            width: 50px; /* Ukuran logo */
+            height: auto;
+            margin-right: 10px;
+        }
+    </style>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                question1: "Hyper Text Markup Language",
+                question2: "<a>",
+                question3: "<p>"
+            };
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            for (const question in correctAnswers) {
+                const selected = form[question].value;
+                if (selected === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `Anda mendapatkan ${score} dari ${Object.keys(correctAnswers).length} jawaban yang benar.`;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Quiz Interaktif</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="penerapan TI.html">Penerapan TI di Perpustakaan</a></li>
+                <li><a href="kesan_pesan.html">Kesan dan Pesan Belajar HTML</a></li>
+                <li><a href="quiz.html">Quiz Interaktif</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Uji Pengetahuan Anda!</h2>
+                        <form id="quizForm">
+                <div class="quiz-question">
+                    <label for="question1">1. Apa singkatan dari HTML?</label>
+                    <input type="radio" name="question1" value="Hyper Text Markup Language"> Hyper Text Markup Language<br>
+                    <input type="radio" name="question1" value="High Text Markup Language"> High Text Markup Language<br>
+                    <input type="radio" name="question1" value="Hyperlink and Text Markup Language"> Hyperlink and Text Markup Language<br>
+                </div>
+                <div class="quiz-question">
+                    <label for="question2">2. Elemen mana yang digunakan untuk membuat tautan?</label>
+                    <input type="radio" name="question2" value="<link>"> &lt;link&gt;<br>
+                    <input type="radio" name="question2" value="<a>"> &lt;a&gt;<br>
+                    <input type="radio" name="question2" value="<href>"> &lt;href&gt;<br>
+                </div>
+                <div class="quiz-question">
+                    <label for="question3">3. Apa yang digunakan untuk menandai paragraf dalam HTML?</label>
+                    <input type="radio" name="question3" value="<p>"> &lt;p&gt;<br>
+                    <input type="radio" name="question3" value="<paragraph>"> &lt;paragraph&gt;<br>
+                    <input type="radio" name="question3" value="<para>"> &lt;para&gt;<br>
+                </div>
+                <button type="button" class="quiz-button" onclick="checkAnswers()">Periksa Jawaban</button>
+            </form>
+            <div id="result" class="result"></div>
+        </section>
+        <section class="recommendations">
+            <h2>Rekomendasi Buku</h2>
+            <div class="book">
+                <img src="https://via.placeholder.com/100" alt="Buku 1">
+                <div>
+                    <a href="https://www.perpusnas.go.id/ebook/detail/12345" target="_blank">Belajar HTML dan CSS</a> - Penulis: John Doe<br>
+                    Deskripsi: Buku ini memberikan panduan lengkap untuk memahami HTML dan CSS, cocok untuk pemula yang ingin belajar membuat website.
+                </div>
+            </div>
+            <div class="book">
+                <img src="https://via.placeholder.com/100" alt="Buku 2">
+                <div>
+                    <a href="https://www.perpusnas.go.id/ebook/detail/67890" target="_blank">HTML untuk Pemula</a> - Penulis: Jane Smith<br>
+                    Deskripsi: Buku ini dirancang untuk membantu pemula memahami dasar-dasar HTML dengan cara yang mudah dipahami.
+                </div>
+            </div>
+            <div class="book">
+                <img src="https://via.placeholder.com/100" alt="Buku 3">
+                <div>
+                    <a href="https://www.perpusnas.go.id/ebook/detail/11223" target="_blank">Panduan Lengkap HTML5</a> - Penulis: Alan Turing<br>
+                    Deskripsi: Buku ini membahas fitur-fitur terbaru dari HTML5 dan bagaimana cara menggunakannya dalam pengembangan web.
+                </div>
+            </div>
+            <div class="book">
+                <img src="https://via.placeholder.com/100" alt="Buku 4">
+                <div>
+                    <a href="https://www.perpusnas.go.id/ebook/detail/44556" target="_blank">CSS untuk Desain Web</a> - Penulis: Ada Lovelace<br>
+                    Deskripsi: Buku ini menjelaskan cara menggunakan CSS untuk mendesain tampilan website yang menarik dan responsif.
+                </div>
+            </div>
+            <div class="opac-link">
+                <img src="https://via.placeholder.com/50" alt="Logo OPAC">
+                <p>Untuk lebih banyak referensi, kunjungi <a href="https://opac.perpunas.go.id" target="_blank">OPAC Perpustakaan Nasional (Perpunas)</a>.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Quiz Interaktif. Semua hak dilindungi.</p>
+    </footer>
+</body>
+</html>
